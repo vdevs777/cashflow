@@ -47,7 +47,7 @@ Para obter uma cópia local funcionando, siga estes passos simples.
 [dot-net-sdk]: https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 
 <!-- Images -->
-[hero-image]: images/heroimage.png
+[hero-image]: images/hero.png
 
 <!-- Badges -->
 [badge-dot-net]: https://img.shields.io/badge/.NET-512BD4?logo=dotnet&logoColor=fff&style=for-the-badge
