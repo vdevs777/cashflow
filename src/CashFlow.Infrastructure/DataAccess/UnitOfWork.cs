@@ -1,5 +1,4 @@
 ﻿using CashFlow.Domain.Repositories;
-using CashFlow.Infraestructure.DataAccess;
 
 namespace CashFlow.Infrastructure.DataAccess;
 internal class UnitOfWork : IUnitOfWork

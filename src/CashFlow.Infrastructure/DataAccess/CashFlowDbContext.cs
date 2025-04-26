@@ -1,7 +1,7 @@
 ﻿using CashFlow.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CashFlow.Infraestructure.DataAccess;
+namespace CashFlow.Infrastructure.DataAccess;
 
 internal class CashFlowDbContext : DbContext
 {
