@@ -17,6 +17,15 @@ public class ExpensesReadOnlyRepositoryBuilder
     {
         _repository.Setup(repo => repo.GetAll(user))
             .ReturnsAsync(expenses);
+
+        return this;
+    }
+
+    public ExpensesReadOnlyRepositoryBuilder FilterByMonth(User user, List<Expense> expenses)
+    {
+        _repository.Setup(repo => repo.FilterByMonth(user, It.IsAny<DateOnly>()))
+            .ReturnsAsync(expenses);
+
         return this;
     }
 

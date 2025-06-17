@@ -1,10 +1,10 @@
-﻿using CashFlow.Communication.Requests;
+﻿using System.Globalization;
+using System.Net;
+using System.Text.Json;
+using CashFlow.Communication.Requests;
 using CashFlow.Exception;
 using CommonTestUtilities.Requests;
 using FluentAssertions;
-using System.Globalization;
-using System.Net;
-using System.Text.Json;
 using WebApi.Test.InlineData;
 
 namespace WebApi.Test.Login.DoLogin;
@@ -34,7 +34,7 @@ public class DoLoginTest : CashFlowClassFixture
 
         var response = await DoPost(requestUri: METHOD, request: request);
 
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        response.StatusCode.Should().Be(HttpStatusCode.Created);
 
         var responseBody = await response.Content.ReadAsStreamAsync();
 
