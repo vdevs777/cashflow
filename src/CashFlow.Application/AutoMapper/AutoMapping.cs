@@ -15,16 +15,37 @@ public class AutoMapping : Profile
 
     private void RequestToEntity()
     {
-        CreateMap<RequestExpenseJson, Expense>();
         CreateMap<RequestRegisterUserJson, User>()
             .ForMember(destiny => destiny.Password, config => config.Ignore());
+
+        CreateMap<RequestExpenseJson, Expense>()
+            .ForMember(
+            destiny => destiny.Tags,
+            config => config.MapFrom(
+                source => source.Tags.Distinct()
+            ));
+
+        CreateMap<Communication.Enums.Tag, Tag>()
+            .ForMember(
+            destiny => destiny.Value,
+            config => config.MapFrom(
+                source => source
+            ));
     }
 
     private void EntityToResponse()
     {
+        CreateMap<Expense, ResponseExpenseJson>()
+            .ForMember(
+            destiny => destiny.Tags,
+            config => config.MapFrom(
+                source => source.Tags.Select(
+                    tag => tag.Value
+                ))
+            );
+
         CreateMap<Expense, ResponseRegisteredExpenseJson>();
         CreateMap<Expense, ResponseShortExpenseJson>();
-        CreateMap<Expense, ResponseExpenseJson>();
         CreateMap<User, ResponseUserProfileJson>();
     }
 }
