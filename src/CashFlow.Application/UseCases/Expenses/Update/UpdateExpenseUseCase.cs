@@ -43,7 +43,7 @@ public class UpdateExpenseUseCase: IUpdateExpenseUseCase
 
         expense.Tags.Clear();
 
-        _mapper.Map(request, expense);
+        
 
         _repository.Update(expense);
 
